@@ -22,13 +22,13 @@ public class Server {
     public static void main(String[] args) throws IOException {
         try (ServerSocket server = new ServerSocket(PORT)) {
             System.out.println("Сервер запущен");
-
+            Logger.log("Сервер запущен");
             while (true) {
                 Socket socket = server.accept();
                 try {
                     serverList.add(new ServerHandler(socket));
                     System.out.println("Количество клиентов на сервере " + serverList.size());
-
+                    Logger.log("Количество клиентов на сервере " + serverList.size());
                 } catch (IOException e) {
                     socket.close();
                 }
