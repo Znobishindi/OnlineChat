@@ -8,7 +8,7 @@ import java.util.Scanner;
 class Client {
 
     private final static String HOST = "localhost";
-    private static final String fileName = "Settings.txt";
+    protected static final String fileName = "Settings.txt";
     private static int PORT;
 
     static {
@@ -28,7 +28,7 @@ class Client {
         Logger.log("К чату добавился новый клиент " + name);
     }
 
-    private static String readUsingFiles(String fileName) throws IOException {
+    protected static String readUsingFiles(String fileName) throws IOException {
         return new String(Files.readAllBytes(Paths.get(fileName)));
 
     }
