@@ -14,7 +14,7 @@ public class Person {
         try {
             this.socket = new Socket(host, port);
         } catch (IOException e) {
-            System.err.println("Socket failed");
+            System.err.println("Сокет не передан");
         }
         try {
             inputUser = new BufferedReader(new InputStreamReader(System.in));
@@ -43,7 +43,6 @@ public class Person {
     private class ReadMsg extends Thread {
         @Override
         public void run() {
-
             String msg;
             try {
                 while (true) {
@@ -60,7 +59,7 @@ public class Person {
         }
     }
 
-    public class WriteMsg extends Thread {
+    private class WriteMsg extends Thread {
 
         @Override
         public void run() {
@@ -74,7 +73,6 @@ public class Person {
                         Person.this.closeConnection();
                         break;
                     } else {
-
                         msg = name + ": " + msg + "\n";
                         out.write(msg);
                         Logger.log(msg);
